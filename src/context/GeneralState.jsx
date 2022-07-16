@@ -21,7 +21,8 @@ const initialState = {
 	pokemons: [],
 	selectedPokemon: null,
 	team: [],
-	theme: "light" // light theme por defecto
+	theme: "light",// light theme por defecto
+	value: "", 
 }
 
 const auth = getAuth(app)
@@ -105,6 +106,13 @@ const GeneralState = ({ children }) => {
 			payload: res.data.results
 		})
 	}
+	
+	const changeValue = (value) => {
+		dispatch({
+			type: 'CHANGE_VALUE',
+			payload: value
+		})
+	}
 
 	const getTeamFromStorage = async () => {
 		const storageTeam = localStorage.getItem('team');
@@ -180,6 +188,8 @@ const GeneralState = ({ children }) => {
 			logout,
 			resetPassword,
 			loading,
+			changeValue,
+			value: state.value,
 		}}>
 
 			{children}
