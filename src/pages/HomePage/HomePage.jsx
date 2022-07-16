@@ -6,7 +6,7 @@ import usePokemons from '../../hooks/usePokemons'
 
 const HomePage = () => {
 	const [alert, setAlert] = useState();
-	const { pokemons } = usePokemons();
+	const { pokemons, value } = usePokemons();
 
   if( pokemons.length > 1){
 		return (
@@ -15,7 +15,7 @@ const HomePage = () => {
 			
 			<h1 className='text-4xl font-bold text-center dark:text-white py-2 '>Choose your team!</h1>
 			<div className='grid gap-4 grid-cols-1 place-items-center md:grid-cols-3 xl:grid-cols-6 '>
-        {pokemons.map(pokemon => <HomeCard key={pokemon.url} name={pokemon.name} setAlert={setAlert}/>)}
+        {pokemons.filter((pokemons)=>{return pokemons.name.toLowerCase().includes(value.toLowerCase()) }).map(pokemon => <HomeCard key={pokemon.url} name={pokemon.name} setAlert={setAlert}/>)}
       </div>
 		</>
     )
