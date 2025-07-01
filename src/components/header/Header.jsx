@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import ToggleThemeButton from "../toggleTheme/toggleTheme";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from '../../hooks/useAuth';
+import BarraDeBusqueda from "../barraDeBusqueda/barraDeBusqueda";
 
 const Header = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -105,6 +106,9 @@ const Header = () => {
 						<div className="items-center hidden md:block text-white" >
 							{user.displayName? user.displayName : user.email}
 						</div>
+            <div>
+              <BarraDeBusqueda></BarraDeBusqueda>
+            </div>
 
 						<div className="items-center hidden md:block">
               <Link to="/" className="text-white dark:text-gray-300 hover:bg-red-600 hover:dark:bg-red-800 hover:dark:text-white px-3 py-2 rounded-md text-sm font-medium" onClick={handleLogout}>

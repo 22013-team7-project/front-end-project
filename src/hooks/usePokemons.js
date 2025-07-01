@@ -5,7 +5,7 @@ const usePokemons = () => {
 	const context = useContext(GeneralContext)
 	if(!context) throw new Error('There is no provider')
 
-	const { getPokemonList, getPokemon, addToTeam, removeFromTeam, pokemons, selectedPokemon, team } = context;
+	const { getPokemonList, getPokemon, addToTeam, removeFromTeam, pokemons, selectedPokemon, team, changeValue,value } = context;
 
 	return { 
 		getPokemonList, 
@@ -14,7 +14,9 @@ const usePokemons = () => {
 		removeFromTeam, 
 		pokemons, 
 		selectedPokemon, 
-		team 
+		team,
+		value, 
+		changeValue,
 	}
 }
 

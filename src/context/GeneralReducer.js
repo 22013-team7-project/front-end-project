@@ -1,4 +1,4 @@
-import { GET_POKEMON_LIST, GET_POKEMON, ADD_POKEMON, REMOVE_POKEMON, CHANGE_THEME, ADD_TEAM, SET_USER, SET_THEME } from "./types";
+import { GET_POKEMON_LIST, GET_POKEMON, ADD_POKEMON, REMOVE_POKEMON, CHANGE_THEME, ADD_TEAM, SET_USER, SET_THEME,CHANGE_VALUE } from "./types";
 
 const GeneralReducer = (state, action) => {
 	const { payload, type } = action;
@@ -48,6 +48,11 @@ const GeneralReducer = (state, action) => {
 			return {
 				...state,
 				theme: payload
+			}
+		case CHANGE_VALUE:
+			return{
+				...state,
+				value: payload
 			}
 
 		default:
